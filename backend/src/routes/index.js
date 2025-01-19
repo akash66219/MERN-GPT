@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var chat_js_1 = require("./chat.js");
+var user_js_1 = require("./user.js");
+var image_js_1 = require("./image.js");
+var appRouter = (0, express_1.Router)();
+appRouter.use('/user', user_js_1.default);
+appRouter.use('/chat', chat_js_1.default);
+appRouter.use('/image', image_js_1.default);
+exports.default = appRouter;

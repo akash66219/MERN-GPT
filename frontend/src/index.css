@@ -1,0 +1,598 @@
+@import url("https://fonts.googleapis.com/css2?family=Madimi+One&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Roboto Slab', sans-serif;
+  color: white;
+}
+
+/* video {
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  min-width: 100%; 
+  min-height: 100%; 
+  width: auto; 
+  height: auto;
+  z-index: -1; 
+  transform: translate(-50%, -50%);
+  opacity:0.92;
+} */
+
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-img {
+  filter: invert(100%);
+}
+
+button {
+  position: relative;
+  background: white;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
+  padding: 1rem 3rem;
+  transition: 0.4s;
+}
+
+button:hover {
+  letter-spacing: 0.1rem;
+  padding: 1rem 3rem;
+  background: yellow;
+  color: white;
+  transform: scale(1.05);
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #272822;
+}
+
+button span {
+  position: relative;
+  z-index: 1;
+}
+button i {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+button i::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 2px;
+  left: 80%;
+  top: -2px;
+  border: 2px solid green;
+  background: #272822;
+  transition: 0.5s;
+}
+
+button:hover i::before {
+  width: 15px;
+  left: 20%;
+  animation: move 3s infinite;
+}
+
+button i::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  left: 20%;
+  bottom: -2px;
+  border: 2px solid green;
+  background: #272822;
+  transition: 0.6s;
+}
+
+button:hover i::after {
+  left: 80%;
+  animation: move 3s infinite;
+}
+
+/* login css */
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  gap: 3%;
+}
+
+.login-page {
+  font-family: sans-serif;
+  background: #243b55;
+}
+
+.login-box {
+  /* position: relative;
+  top: 20%;
+  left: 10%; */
+  width: 350px;
+  padding: 50px;
+  /* transform: translate(-50%, -50%); */
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px -1px black;
+}
+
+.heading-login-box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.user-box {
+  position: relative;
+}
+
+.user-box-input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.user-box-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+  top: -20px;
+  left: 0;
+  color: #8ab0df;
+  font-size: 12px;
+}
+
+.login-box-button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #8ab0df;
+  font-size: 14px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 30px;
+}
+
+.login-box a:hover {
+  background: #8ab0df;
+  color: #fff;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box-button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8ab0df);
+  animation: btn-1 1.7s linear infinite;
+}
+
+@keyframes btn-1 {
+  0% {
+      left: -100%;
+  }
+
+  50%,
+  100% {
+      left: 100%;
+  }
+}
+
+.login-box-button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #8ab0df);
+  animation: btn-2 1.7s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes btn-2 {
+  0% {
+      top: -100%;
+  }
+
+  50%,
+  100% {
+      top: 100%;
+  }
+}
+
+.login-box-button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #8ab0df);
+  animation: btn-3 1.7s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes btn-3 {
+  0% {
+      right: -100%;
+  }
+  50%,
+  100% {
+      right: 100%;
+  }
+}
+
+.login-box-button span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #8ab0df);
+  animation: btn-4 1.7s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes btn-4 {
+  0% {
+      bottom: -100%;
+  }
+
+  50%,
+  100% {
+      bottom: 100%;
+  }
+}
+@media screen and (max-width: 576px) and (min-width: 400px) {
+  .login-box {
+      width: 250px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .login-box {
+      width: 200px;
+  }
+
+  .heading-login-box {
+      font-size: 16px !important;
+  }
+
+  .user-box-input {
+      font-size: 12px;
+  }
+
+  .user-box-label {
+      font-size: 12px;
+  }
+  .login-box-button {
+      font-size: 12px;
+  }
+}
+
+.no-dec{
+  color: yellow;
+}
+.no-dec:hover{
+  background-color: red;
+}
+
+:root{
+  --EVA-ROTATION-DURATION: 4s;
+}
+
+/* Animation Robot */
+
+.modelViewPort{
+  perspective: 1000px;
+  width: 20rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  overflow: hidden;
+}
+.eva{
+  transform-style: preserve-3d;
+  animation: rotateRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+}
+.head{
+  position: relative;
+  width: 6rem;
+  height: 4rem;
+  border-radius: 48% 53% 45% 55% / 79% 79% 20% 22% ;
+  background: linear-gradient(to right, white 45%, gray)
+}
+.eyeChamber{
+  width: 4.5rem;
+  height: 2.75rem;
+  position: relative;
+  left: 50%;
+  top: 55%;
+  border-radius: 45% 53% 45% 48% / 62% 59% 35% 34% ;
+  background-color: #0C203C;
+  box-shadow: 0px 0px 2px 2px white, inset 0px 0px 0px 2px black;
+  transform: translate(-50%, -50%);
+  animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+}
+.eye{
+  width: 1.2rem;
+  height: 1.5rem;
+  position: absolute;
+  border-radius: 50%;
+}
+.eye:first-child{
+  left: 12px;
+  top: 50%;
+   background: repeating-linear-gradient(
+    65deg, 
+    #9bdaeb 0px, 
+    #9bdaeb 1px,
+    white 2px
+  );
+  box-shadow: inset 0px 0px 5px #04B8D5, 0px  0px 15px 1px #0bdaeb;
+  transform: translate(0, -50%) rotate(-65deg);
+}
+.eye:nth-child(2){
+  right: 12px;
+  top: 50%;
+  background: repeating-linear-gradient(
+    -65deg, 
+    #9bdaeb 0px, 
+    #9bdaeb 1px,
+    white 2px
+  );
+  box-shadow: inset 0px 0px 5px #04B8D5, 0px  0px 15px 1px #0bdaeb;
+  transform: translate(0, -50%) rotate(65deg);
+}
+
+.hand{
+  position: absolute;
+  left: -1.5rem;
+  top: .75rem;
+  width: 2rem;
+  height: 5.5rem;
+  border-radius: 40%;
+  background: linear-gradient(to left, white 15%, gray);
+  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.25);
+  transform: rotateY(55deg) rotateZ(10deg);
+}
+.hand:first-child{
+  animation: compensateRotation var(--EVA-ROTATION-DURATION) linear infinite alternate;
+}
+.hand:nth-child(2){
+  left: 92%;
+  background: linear-gradient(to right, white 15%, gray);
+  transform: rotateY(55deg) rotateZ(-10deg);
+  animation: compensateRotationRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+}
+.scannerThing{
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 60%;
+  top: 10%;
+  border-top: 180px solid #9bdaeb;
+  border-left: 250px solid transparent;
+  border-right: 250px solid transparent;
+  transform-origin: top left; 
+  mask: linear-gradient(to right, white, transparent 35%);
+  animation: glow 2s cubic-bezier( 0.86, 0, 0.07, 1 ) infinite;
+}
+.scannerOrigin{
+  position: absolute;
+  width: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 60%;
+  top: 10%;
+  background: #9bdaeb;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+  animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite;
+}
+@keyframes rotateRight{
+  from{
+    transform: rotateY(0deg);
+  }
+  to{transform: rotateY(25deg)}
+}
+@keyframes moveRight{
+  from{transform: translate(-50%, -50%)}
+  to{transform: translate(-40%, -50%)}
+}
+@keyframes compensateRotation{
+  from{
+    transform: rotateY(55deg) rotateZ(10deg);
+  }
+  to{
+    transform: rotatey(30deg) rotateZ(10deg);
+  }
+}
+@keyframes compensateRotationRight{
+  from{
+     transform: rotateY(55deg) rotateZ(-10deg); 
+  }
+  to{
+    transform: rotateY(70deg) rotateZ(-10deg);
+  }
+}
+@keyframes glow{
+  from{
+    opacity: 0;
+  }
+  20%{
+    opacity: 1;
+  }
+  45%{
+    transform: rotate(-25deg)
+  }
+  75%{
+    transform: rotate(5deg)
+  }    
+  100%{
+    opacity: 0;
+  }
+}
+
+.scrollable-container {
+  /* Set overflow-y to scroll to enable vertical scrollbar */
+  overflow-y: scroll;
+  /* Set the width of the container */
+  width: 60%;
+  /* Center the container horizontally */
+  margin: 0 auto;
+  /* Specify the height of the container */
+  height: 200px; /* Adjust the height as needed */
+  scroll-behavior: smooth;
+
+}
+
+/* Style the scrollbar */
+.scrollable-container::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+/* Track */
+.scrollable-container::-webkit-scrollbar-track {
+  background: #171719; /* Color of the scrollbar track */
+}
+
+/* Handle */
+.scrollable-container::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar handle */
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar handle on hover */
+}
+.scrollable-chat {
+  /* Set overflow-y to scroll to enable vertical scrollbar */
+  overflow-y: hidden;
+  overflow-x: scroll  ;
+  /* Set the width of the container */
+  width: 60%;
+  /* Center the container horizontally */
+  /* Specify the height of the container */
+  height: 200px; /* Adjust the height as needed */
+  scroll-behavior: smooth;
+}
+
+/* Style the scrollbar */
+.scrollable-chat::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+/* Track */
+.scrollable-chat::-webkit-scrollbar-track {
+  background: #171719; /* Color of the scrollbar track */
+}
+
+/* Handle */
+.scrollable-chat::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar handle */
+  border-radius: 20px;
+}
+
+/* Handle on hover */
+.scrollable-chat::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar handle on hover */
+}
+
+.scrollhost::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollhost ::-moz-scrollbar {
+  display: none;
+ 
+}
+
+.scrollhost {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-color: transparent transparent; /*just hides the scrollbar for firefox */
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  height: 5px;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-moz-scrollbar {
+  width: 5px;
+}
+
+::-moz-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-moz-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-moz-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.active p{
+  text-decoration: underline;
+  text-decoration-thickness: px;
+}
+
+.partial-transparent image{
+  opacity: 0.9;
+}
+

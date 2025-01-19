@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MERN-BOT</title>
+  <style>
+    :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  max-height: 200vh;
+  overflow-x: hidden;
+}
+
+canvas {
+  filter: blur(1.25px);
+}
+  </style>
+</head>
+
+<body>
+  <!-- <video id="background-video" autoplay loop muted>
+    <source src="./src/assets/bg_vid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video> -->
+  <canvas id="particle-constellation" style="position:absolute; z-index: -1;"></canvas>
+  <div id="root" style="z-index: 1;"></div>
+  <script type="module" src="/src/main.tsx"></script>
+  <script>
+    // const video = document.getElementById('background-video');
+    // video.playbackRate = 0.4;
+    const color = "#8ffff8";
+const densityFact = 2;
+const lineLengthFactor = 350;
+const xSpeedFunc = () => (Math.random() - 0.5);
+const ySpeedFunc = () => (Math.random() - 0.5);
+const zSpeedFunc = () => (Math.random() - 0.5);
+const pointSize = 10;
+const maxLinkLength = lineLengthFactor / densityFact;
+
+const canvasContainer = document.querySelector('*:has(>canvas#particle-constellation)');
+const canvas = canvasContainer.querySelector('canvas');
+
+function resizeCanvas() {
+    let canvasWidth = canvasContainer.clientWidth;
+    let canvasHeigth = canvasContainer.clientHeight;
+    canvas.setAttribute("width", `${canvasWidth}`);
+    canvas.setAttribute("height", `${canvasHeigth}`);
+    canvas.style.width = canvas.width + "px";
+    canvas.style.height = canvas.height + "px";
+}
+resizeCanvas();
+addEventListener('resize', resizeCanvas);
+
+const c = canvas.getContext("2d", { alpha: true }) 
+const depth = lineLengthFactor;
+
+class Point {
+    x;
+    y;
+    z;
+    xSpeed;
+    ySpeed;
+    zSpeed;
+
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.z = Math.random() * (depth - 1) + depth;
+        this.xSpeed = xSpeedFunc();
+        this.ySpeed = ySpeedFunc();
+        this.zSpeed = zSpeedFunc();
+    }
+
+    update() {
+        this.x += this.xSpeed;
+        this.y += this.ySpeed;
+        this.z += this.zSpeed;
+        if (this.x < 0) this.x += canvas.width;
+        if (this.x > canvas.width) this.x -= canvas.width;
+        if (this.y < 0) this.y += canvas.height;
+        if (this.y > canvas.height) this.y -= canvas.height;
+        if (this.z < 0 || this.z > depth) this.zSpeed = -this.zSpeed;
+    }
+}
+
+const points = [];
+const nbPoint = densityFact * (canvas.width * canvas.height) / 20000;
+for (let i = 0; i < nbPoint; i++) {
+    points.push(new Point());
+}
+
+requestAnimationFrame(draw);
+
+function draw() {
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    c.fillStyle = color;
+    c.strokeStyle = color;
+
+    for (let i = 0; i < points.length; i++) {
+        c.globalAlpha = 1;
+        c.beginPath();
+        c.arc(points[i].x, points[i].y, 3, 0, Math.PI * 2);
+        c.fill();
+
+        for (let j = 0; j < points.length; j++) {
+            let distance = Math.sqrt((points[i].x - points[j].x) ** 2 + (points[i].y - points[j].y) ** 2 + (points[i].z - points[j].z) ** 2);
+            if (distance > 2 && distance < maxLinkLength) {
+                c.globalAlpha = (maxLinkLength - distance) / maxLinkLength;
+                c.beginPath();
+                c.moveTo(points[i].x, points[i].y);
+                c.lineTo(points[j].x, points[j].y);
+                c.stroke();
+            }
+        }
+
+        points[i].update();
+    }
+
+    requestAnimationFrame(draw);
+}
+  </script>
+</body>
+
+</html>
