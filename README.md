@@ -2,6 +2,9 @@
 
 MERN-GPT is an AI assistance application integrated with an image generator. This project leverages the power of the MERN stack (MongoDB, Express, React, Node.js) along with various modern technologies to provide a comprehensive AI-based service.
 
+![image](https://github.com/user-attachments/assets/fe0d099d-8411-4bd6-a3ee-1d1bb3465c23)
+
+
 ## Technologies Used
 
 - **Frontend**: React, Material UI, Redux
