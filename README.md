@@ -63,7 +63,7 @@ various Artificial Intelligence models, eliminating the need for an API Key or a
 
 ### Clone the repository
 ```sh
-git clone https://github.com/Poseidon0070/MERN-GPT
+git clone https://github.com/akash66219/MERN-GPT
 ```
 
 ### Install dependencies for both frontend and backend
